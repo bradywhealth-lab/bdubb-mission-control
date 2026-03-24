@@ -52,10 +52,11 @@ export default function HomePage() {
         eventsRes.json(),
       ]);
 
-      setTasks(tasksData);
-      setAgents(agentsData);
-      setDeploys(deploysData);
-      setEvents(eventsData.slice(0, 10));
+      // Defensive: ensure we set valid types, never error objects
+      setTasks(Array.isArray(tasksData) ? tasksData : []);
+      setAgents(agentsData && typeof agentsData === "object" && !Array.isArray(agentsData) ? agentsData : {});
+      setDeploys(Array.isArray(deploysData) ? deploysData : []);
+      setEvents(Array.isArray(eventsData) ? eventsData.slice(0, 10) : []);
     } catch (error) {
       console.error("Failed to fetch data:", error);
     } finally {

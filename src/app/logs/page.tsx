@@ -43,7 +43,8 @@ export default function LogsPage() {
     try {
       const res = await fetch("/api/events");
       const data = await res.json();
-      setEvents(data);
+      // Defensive: ensure we set an array, never an error object
+      setEvents(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Failed to fetch events:", error);
     } finally {
@@ -57,14 +58,14 @@ export default function LogsPage() {
     return () => clearInterval(interval);
   }, []);
 
-  const filteredEvents = events.filter((event) => {
+  const filteredEvents = Array.isArray(events) ? events.filter((event) => {
     if (filter !== "all" && event.type !== filter) return false;
     if (agentFilter !== "all" && event.agent !== agentFilter) return false;
     return true;
-  });
+  }) : [];
 
-  const agents = Array.from(new Set(events.map((e) => e.agent)));
-  const types = Array.from(new Set(events.map((e) => e.type)));
+  const agents = Array.isArray(events) ? Array.from(new Set(events.map((e) => e.agent))) : [];
+  const types = Array.isArray(events) ? Array.from(new Set(events.map((e) => e.type))) : [];
 
   function formatTime(timestamp: string): string {
     const date = new Date(timestamp);

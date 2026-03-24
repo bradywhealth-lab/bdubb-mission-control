@@ -19,8 +19,10 @@ export default function DeployPage() {
 
   const fetchDeploys = async () => {
     try {
-      const data = await (await fetch("/api/deploys")).json();
-      setDeploys(data);
+      const res = await fetch("/api/deploys");
+      const data = await res.json();
+      // Defensive: ensure we set an array, never an error object
+      setDeploys(Array.isArray(data) ? data : []);
     } catch {
       // Silently fail
     } finally {
