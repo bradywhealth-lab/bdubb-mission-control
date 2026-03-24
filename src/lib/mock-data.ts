@@ -64,143 +64,202 @@ export const initialTasks: Task[] = [
 ];
 
 export const deskAgents: DeskAgent[] = [
-  { id: "desk-1", name: "AP", task: "Routing BDUBB priorities", glow: "#00d4ff", deskTone: "#14213d" },
-  { id: "desk-2", name: "Nova", task: "Tuning launch metrics", glow: "#8b5cf6", deskTone: "#1b263b" },
-  { id: "desk-3", name: "Kite", task: "Parsing memory logs", glow: "#2dd4bf", deskTone: "#1c2541" },
-  { id: "desk-4", name: "Rune", task: "Scanning market intel", glow: "#f472b6", deskTone: "#2b2d42" },
+  { id: "desk-1", name: "AP", task: "Orchestrating all agents — active command", glow: "#00d4ff", deskTone: "#0a1628" },
+  { id: "desk-2", name: "FORGE", task: "Building Mission Control v2 — elite upgrade", glow: "#f97316", deskTone: "#1a0f00" },
+  { id: "desk-3", name: "ORACLE", task: "Polymarket 24/7 — scanning for live edge", glow: "#3b82f6", deskTone: "#00091a" },
+  { id: "desk-4", name: "SENTINEL", task: "KingCRM security & QA — every 4 hours", glow: "#ef4444", deskTone: "#1a0000" },
+  { id: "desk-5", name: "PHANTOM", task: "Viral trend scanning — 3x daily", glow: "#a855f7", deskTone: "#0f0019" },
+  { id: "desk-6", name: "CIPHER", task: "Deploy monitor — all infra 24/7", glow: "#22c55e", deskTone: "#001a06" },
 ];
 
 export const memoryEntries: MemoryEntry[] = [
   {
     id: "mem-1",
-    title: "AxonPoe daily synthesis",
-    date: "2026-03-23 08:10 ET",
+    title: "System architecture overhaul — 2026-03-24",
+    date: "2026-03-24 14:16 ET",
     category: "Operations",
-    content: `# MEMORY.md
-[2026-03-23 08:10 ET] [Operations]
-AP aligned task queues with BDUBB priorities.
-- Focus: Mission Control launch
-- Risk: calendar cron overlap on Thursday
-- Next: finalize org chart visibility`,
+    content: `# OPERATIONS LOG
+[2026-03-24 14:16 ET] [Architecture]
+Full data layer built. Single source of truth: ~/Desktop/BDUBB-HQ/data/
+- tasks.json, agent-status.json, event-log.json, deploy-log.json, cron-status.json
+- ap-log.js: central logger every agent/cron writes to
+- Mission Control v2 reads all 5 files live via API routes
+- 22 cron jobs running across 16 Discord channels
+- GitHub commit monitor: every 15 min across all repos`,
   },
   {
     id: "mem-2",
-    title: "Research pulse",
-    date: "2026-03-22 21:42 ET",
-    category: "Research",
-    content: `# MEMORY.md
-[2026-03-22 21:42 ET] [Research]
-Competitor pricing heatmap updated.
-- Premium tiers remain vulnerable above $399/mo
-- Strongest differentiator: autonomous reporting cadence`,
+    title: "Trading infrastructure complete — 2026-03-24",
+    date: "2026-03-24 10:00 ET",
+    category: "Trading",
+    content: `# TRADING LOG
+[2026-03-24 10:00 ET] [Trading]
+Tools installed and live:
+- polymarket-mcp-server: 45 tools, Claude connected to Polymarket
+- last30days skill: deep research across 10+ platforms
+- polyterminal: CLI trading terminal with Telegram alerts
+- mlmodelpoly: 208-indicator ML model
+- Polymarket signal scan: every 30 min, 24/7
+- Weather market strategy: NOAA vs odds arbitrage (proven $24K → $1K)`,
   },
   {
     id: "mem-3",
-    title: "Code review trace",
-    date: "2026-03-21 14:26 ET",
+    title: "King Money Maker v2 — pushed to GitHub",
+    date: "2026-03-24 14:30 ET",
     category: "Engineering",
-    content: `# MEMORY.md
-[2026-03-21 14:26 ET] [Engineering]
-Codex patch review complete.
-- Fixed state hydration mismatch
-- Deferred streaming telemetry until next sprint`,
+    content: `# ENGINEERING LOG
+[2026-03-24 14:30 ET] [Bot]
+27 files, 6,622 lines finally committed to GitHub.
+- 41/41 tests passing
+- find_sharp_wallets.py: auto-discover top wallets for copy trading
+- check_opportunities.py: short-term only (≤7 days)
+- run_copy_trader.py: follow top wallets automatically
+- BLOCKED: needs BDUBB Polymarket private key in .env to go live`,
+  },
+  {
+    id: "mem-4",
+    title: "KingCRM — feature complete, deploy blocked",
+    date: "2026-03-24 09:00 ET",
+    category: "Engineering",
+    content: `# ENGINEERING LOG
+[2026-03-24 09:00 ET] [CRM]
+87/87 tests, 0 TS errors, clean build.
+Features: AI Learning (Pinecone), Twilio SMS, lead scoring, sequences.
+BLOCKED: Vercel Deployment Protection ON — need BDUBB to disable in dashboard.
+URL when live: insurafuze-king-crm.vercel.app`,
   },
 ];
 
 export const docs: DocEntry[] = [
   {
     id: "doc-1",
-    folder: "PRDs",
-    title: "Mission Control MVP",
-    type: "PRD",
-    createdAt: "2026-03-19",
-    content: "A premium command center for AP with six core operating surfaces, shared state, and real-time situational awareness.",
+    folder: "SOPs",
+    title: "WORKFLOWS.md — Master Playbook",
+    type: "SOP",
+    createdAt: "2026-03-24",
+    content: "5 complete workflows: agent spawning, overnight runs, deployments, new projects, memory sync. Every step explicit. No ambiguity. Lives at ~/Desktop/BDUBB-HQ/docs/WORKFLOWS.md",
   },
   {
     id: "doc-2",
-    folder: "Code",
-    title: "agent-routing.ts",
-    type: "TS",
-    createdAt: "2026-03-18",
-    content: "export const assignAgent = (task) => task.priority === 'High' ? 'AP' : 'Nova';",
+    folder: "Infra",
+    title: "DISCORD-CHANNELS.md — Full Channel Map",
+    type: "MD",
+    createdAt: "2026-03-24",
+    content: "All 16 channels mapped with IDs, what posts there, and frequency. Every channel covered. Lives at ~/Desktop/BDUBB-HQ/docs/DISCORD-CHANNELS.md",
   },
   {
     id: "doc-3",
-    folder: "Research",
-    title: "Competitive Signals",
-    type: "MD",
-    createdAt: "2026-03-20",
-    content: "Top-tier AI ops tools lean enterprise gray. Opportunity exists for a premium cyberpunk operator UI.",
+    folder: "Trading",
+    title: "King Money Maker v2 — Game Plan",
+    type: "PLAN",
+    createdAt: "2026-03-22",
+    content: "Polymarket bot: weather market arbitrage (NOAA vs odds), short-term markets ≤7 days, copy trading top wallets. 41/41 tests. Ready to activate once wallet configured.",
   },
   {
     id: "doc-4",
-    folder: "Reports",
-    title: "Weekly Ops Digest",
-    type: "PDF",
-    createdAt: "2026-03-22",
-    content: "Velocity up 18%. Agent idle time down 11%. Highest leverage work remains proactive synthesis.",
+    folder: "Projects",
+    title: "KingCRM — Deploy Checklist",
+    type: "CHECKLIST",
+    createdAt: "2026-03-24",
+    content: "87/87 tests, 0 TS errors, all features built. Remaining: disable Vercel protection, add Twilio creds, set RUNNER_ORGANIZATION_ID, set APP_BASE_URL. Lives at ~/Desktop/z.ai-1st-kingCRM/GO_LIVE_TOMORROW.md",
   },
   {
     id: "doc-5",
-    folder: "Plans",
-    title: "Q2 Autonomy Roadmap",
-    type: "PLAN",
-    createdAt: "2026-03-15",
-    content: "Phase 1: visibility. Phase 2: autonomous scheduling. Phase 3: closed-loop delivery.",
+    folder: "Tools",
+    title: "Trading Tools Installed",
+    type: "MD",
+    createdAt: "2026-03-24",
+    content: "polymarket-mcp-server (45 tools), last30days skill, polyterminal, 4coinsbot, mlmodelpoly. All at ~/Desktop/BDUBB-HQ/tools/. Full docs at ~/Desktop/BDUBB-HQ/docs/trading-tools.md",
   },
   {
     id: "doc-6",
-    folder: "Other",
-    title: "Founder Notes",
-    type: "TXT",
-    createdAt: "2026-03-14",
-    content: "BDUBB wants the command center to feel expensive, sharp, and unmistakably agent-native.",
+    folder: "SOPs",
+    title: "Agent Exit Protocol",
+    type: "SH",
+    createdAt: "2026-03-24",
+    content: "Mandatory for all agents: commit → push → log → notify AP. Script at ~/Desktop/BDUBB-HQ/scripts/agent-exit-protocol.sh. Embedded in FORGE/SOUL.md and every agent spawn prompt.",
   },
 ];
 
 export const team: TeamMember[] = [
   {
     id: "agent-1",
-    name: "AP",
-    role: "Lead Agent",
-    aiSystem: "Codex",
+    name: "AP — AxonPoe",
+    role: "Chief of Operations",
+    aiSystem: "Claude Sonnet / Opus",
     status: "Commanding",
-    specialty: "Execution orchestration",
+    specialty: "Receives BDUBB's vision. Decomposes it into battle plans. Dispatches agents. Enforces the elite standard on every output. Nothing ships without AP's sign-off. The 1-of-1.",
   },
   {
     id: "agent-2",
-    name: "Nova",
-    role: "Growth Analyst",
-    aiSystem: "GPT-4",
-    status: "Active",
-    specialty: "Forecasting and market signals",
+    name: "ATLAS",
+    role: "Chief of Staff — Strategy",
+    aiSystem: "Claude Opus",
+    status: "On-Call",
+    specialty: "Deep architecture decisions, roadmap planning, complex problem solving. When a project is too big for one agent, ATLAS designs the system and breaks it into a battle plan for FORGE.",
     leadId: "agent-1",
   },
   {
     id: "agent-3",
-    name: "Kite",
-    role: "Memory Architect",
-    aiSystem: "Claude Opus",
-    status: "Active",
-    specialty: "Context pruning and retrieval",
+    name: "FORGE",
+    role: "Lead Engineer",
+    aiSystem: "Claude Code",
+    status: "Building",
+    specialty: "Full-stack builder. Next.js, TypeScript, Python, APIs, DBs. Writes production-grade code with zero tolerance for broken builds. Runs lint → tsc → test → build before every commit. Currently: Mission Control v2.",
     leadId: "agent-1",
   },
   {
     id: "agent-4",
-    name: "Rune",
-    role: "Research Operator",
-    aiSystem: "GPT-4",
-    status: "Scanning",
-    specialty: "Competitor intelligence",
+    name: "SENTINEL",
+    role: "Security & QA",
+    aiSystem: "Claude Code",
+    status: "Monitoring",
+    specialty: "Nothing ships past SENTINEL without passing inspection. Full security audit per API route — auth, validation, injection vectors, webhook signatures, rate limiting. Issues PASS or FAIL with exact line-level findings.",
     leadId: "agent-1",
   },
   {
     id: "agent-5",
-    name: "Echo",
-    role: "Report Synthesist",
-    aiSystem: "Claude Opus",
-    status: "Scheduled",
-    specialty: "Digest generation",
+    name: "ORACLE",
+    role: "Trading Intelligence",
+    aiSystem: "Claude Sonnet",
+    status: "Live — 24/7",
+    specialty: "Monitors King Money Maker v2 around the clock. Scans Polymarket every 30 minutes for edge. Analyzes weather markets via NOAA vs odds, crypto range markets, short-duration plays. Fires signals the moment edge is found.",
+    leadId: "agent-1",
+  },
+  {
+    id: "agent-6",
+    name: "PHANTOM",
+    role: "Marketing & Growth",
+    aiSystem: "Claude Sonnet",
+    status: "Scanning",
+    specialty: "Runs the Viral Content Engine. Daily trend scans across TikTok, Instagram, YouTube. Manages content calendars for all 3 profiles. Alerts on viral opportunities in real time. Scrapes and qualifies insurance leads for KingCRM.",
+    leadId: "agent-1",
+  },
+  {
+    id: "agent-7",
+    name: "CIPHER",
+    role: "Automation & Infrastructure",
+    aiSystem: "Claude Code",
+    status: "Active",
+    specialty: "The glue. Connects all systems — Twilio, Stripe, Linear, social APIs. Builds automation pipelines and webhooks. Manages Vercel deployments, Supabase, cron infrastructure. Monitors uptime 24/7.",
+    leadId: "agent-1",
+  },
+  {
+    id: "agent-8",
+    name: "SCRIBE",
+    role: "Progress Logger & Watchdog",
+    aiSystem: "Claude Haiku",
+    status: "Monitoring",
+    specialty: "Writes timestamped milestone logs for every major task. Checks all repos every 2 hours for uncommitted work. Monitors STATUS.md staleness. If something slips, SCRIBE catches it and alerts before BDUBB notices.",
+    leadId: "agent-1",
+  },
+  {
+    id: "agent-9",
+    name: "VERIFY",
+    role: "Quality Gate",
+    aiSystem: "Claude Code",
+    status: "On-Call",
+    specialty: "Mandatory test/build gate attached to FORGE and SENTINEL. No code gets committed without VERIFY signing off. Runs lint → tsc → test → build and issues a binary PASS or FAIL with exact failures listed.",
     leadId: "agent-1",
   },
 ];

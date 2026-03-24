@@ -1,20 +1,25 @@
 "use client";
 
 import { FileCode2, FileSearch, FileText, FolderKanban } from "lucide-react";
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useMissionControl } from "@/components/mission-control-provider";
 import { Modal, Panel, SectionHeading } from "@/components/ui";
 import { DocFolder } from "@/lib/types";
 
 const folders: DocFolder[] = ["PRDs", "Code", "Research", "Reports", "Plans", "Other"];
 
-const folderIcons = {
+const folderIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   PRDs: FolderKanban,
   Code: FileCode2,
   Research: FileSearch,
   Reports: FileText,
   Plans: FolderKanban,
   Other: FileText,
+  SOPs: FolderKanban,
+  Infra: FolderKanban,
+  Trading: FileText,
+  Projects: FolderKanban,
+  Tools: FileCode2,
 };
 
 export function DocsExplorer() {

@@ -28,7 +28,7 @@ export type MemoryEntry = {
   content: string;
 };
 
-export type DocFolder = "PRDs" | "Code" | "Research" | "Reports" | "Plans" | "Other";
+export type DocFolder = "PRDs" | "Code" | "Research" | "Reports" | "Plans" | "Other" | "SOPs" | "Infra" | "Trading" | "Projects" | "Tools";
 
 export type DocEntry = {
   id: string;
