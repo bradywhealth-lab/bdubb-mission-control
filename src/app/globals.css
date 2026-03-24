@@ -1,0 +1,74 @@
+:root {
+  --background: #0a0a0f;
+  --foreground: #f3f7ff;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-white/10;
+  }
+
+  html {
+    @apply h-full scroll-smooth;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at top, rgba(0, 212, 255, 0.13), transparent 26%),
+      radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.16), transparent 28%),
+      var(--background);
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), sans-serif;
+    @apply min-h-full m-0;
+  }
+
+  ::selection {
+    background: rgba(0, 212, 255, 0.25);
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-orbitron), sans-serif;
+  }
+
+  .font-body {
+    font-family: var(--font-rajdhani), sans-serif;
+  }
+
+  .font-pixel {
+    font-family: var(--font-press-start), monospace;
+  }
+
+  .input {
+    @apply w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 font-body text-white outline-none transition placeholder:text-white placeholder:opacity-30 focus:border-cyan-400/50 focus:bg-white/10;
+  }
+
+  .office-grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.45;
+  }
+
+  .speech-bubble::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 18px;
+    height: 18px;
+    transform: translateX(-50%) rotate(45deg);
+    background: #161a2a;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
