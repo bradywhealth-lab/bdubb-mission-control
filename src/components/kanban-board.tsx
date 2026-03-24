@@ -1,9 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import { useMissionControl } from "@/components/mission-control-provider";
 import { GlowButton, Modal, Panel, SectionHeading } from "@/components/ui";
 import { Task, TaskPriority, TaskStatus } from "@/lib/types";
 
@@ -15,17 +14,84 @@ const priorityStyles: Record<TaskPriority, string> = {
   Low: "bg-emerald-500/20 text-emerald-100 border-emerald-400/30",
 };
 
+const statusMap: Record<string, TaskStatus> = {
+  "backlog": "Backlog",
+  "in-progress": "In Progress",
+  "in-review": "In Review",
+  "done": "Done",
+};
+
+const reverseStatusMap: Record<TaskStatus, string> = {
+  "Backlog": "backlog",
+  "In Progress": "in-progress",
+  "In Review": "in-review",
+  "Done": "done",
+};
+
 export function KanbanBoard() {
-  const { tasks, moveTask, createTask } = useMissionControl();
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [draggingId, setDraggingId] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [form, setForm] = useState({
     title: "",
     description: "",
     priority: "High" as TaskPriority,
     assignee: "AP",
-    scheduledFor: "",
   });
+
+  const fetchTasks = async () => {
+    try {
+      const res = await fetch("/api/tasks");
+      const data = await res.json();
+      setTasks(data.map((t: { status: string; priority: string; createdAt?: string }) => ({
+        ...t,
+        status: statusMap[t.status] || "Backlog",
+        priority: (t.priority.charAt(0).toUpperCase() + t.priority.slice(1)) as TaskPriority,
+        createdAt: t.createdAt?.split("T")[0] || new Date().toISOString().split("T")[0],
+      })));
+    } catch (error) {
+      console.error("Failed to fetch tasks:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchTasks();
+  }, []);
+
+  const moveTask = async (taskId: string, newStatus: TaskStatus) => {
+    const apiStatus = reverseStatusMap[newStatus];
+    try {
+      await fetch(`/api/tasks/${taskId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: apiStatus }),
+      });
+      await fetchTasks();
+    } catch (error) {
+      console.error("Failed to move task:", error);
+    }
+  };
+
+  const createTask = async () => {
+    try {
+      await fetch("/api/tasks", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...form,
+          status: "backlog",
+        }),
+      });
+      await fetchTasks();
+      setOpen(false);
+      setForm({ title: "", description: "", priority: "High", assignee: "AP" });
+    } catch (error) {
+      console.error("Failed to create task:", error);
+    }
+  };
 
   const grouped = useMemo(
     () =>
@@ -38,6 +104,17 @@ export function KanbanBoard() {
       ),
     [tasks],
   );
+
+  if (loading) {
+    return (
+      <div className="flex min-h-[60vh] items-center justify-center">
+        <div className="flex items-center gap-3">
+          <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyan-400 border-t-transparent" />
+          <p className="font-body text-white/70">Loading Kanban...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -106,9 +183,7 @@ export function KanbanBoard() {
           className="space-y-4"
           onSubmit={(event) => {
             event.preventDefault();
-            createTask(form);
-            setOpen(false);
-            setForm({ title: "", description: "", priority: "High", assignee: "AP", scheduledFor: "" });
+            createTask();
           }}
         >
           <FormField label="Title">
@@ -117,7 +192,7 @@ export function KanbanBoard() {
           <FormField label="Description">
             <textarea required value={form.description} onChange={(event) => setForm((current) => ({ ...current, description: event.target.value }))} className="input min-h-28 resize-none" />
           </FormField>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2">
             <FormField label="Priority">
               <select value={form.priority} onChange={(event) => setForm((current) => ({ ...current, priority: event.target.value as TaskPriority }))} className="input">
                 <option>High</option>
@@ -127,9 +202,6 @@ export function KanbanBoard() {
             </FormField>
             <FormField label="Assignee">
               <input value={form.assignee} onChange={(event) => setForm((current) => ({ ...current, assignee: event.target.value }))} className="input" />
-            </FormField>
-            <FormField label="Scheduled">
-              <input type="date" value={form.scheduledFor} onChange={(event) => setForm((current) => ({ ...current, scheduledFor: event.target.value }))} className="input" />
             </FormField>
           </div>
           <GlowButton type="submit" className="w-full">Create Task</GlowButton>
