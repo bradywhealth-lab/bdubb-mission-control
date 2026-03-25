@@ -48,3 +48,17 @@ export type TeamMember = {
   specialty: string;
   leadId?: string;
 };
+
+export type HandoffStatus = "COMPLETE" | "INCOMPLETE" | "BLOCKED" | "WIP" | "UNKNOWN";
+
+export type HandoffEntry = {
+  id: string;
+  project: string;
+  filename: string;
+  path: string;
+  status: HandoffStatus;
+  date: string;
+  slug: string;
+  content: string;
+  modifiedAt: string;
+};

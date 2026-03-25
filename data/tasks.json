@@ -1,0 +1,45 @@
+{
+  "tasks": [
+    {
+      "id": "1774376273348",
+      "title": "Viral Engine — build from scratch",
+      "assignee": "FORGE",
+      "priority": "high",
+      "status": "in-progress",
+      "description": "Full social content automation platform",
+      "createdAt": "2026-03-24T18:17:53.348Z",
+      "updatedAt": "2026-03-24T18:17:53.377Z"
+    },
+    {
+      "id": "1774376272731",
+      "title": "King Money Maker v2 — connect Polymarket wallet",
+      "assignee": "ORACLE",
+      "priority": "high",
+      "status": "blocked",
+      "description": "Needs BDUBB private key in .env",
+      "createdAt": "2026-03-24T18:17:52.731Z",
+      "updatedAt": "2026-03-24T18:17:52.739Z"
+    },
+    {
+      "id": "1774376272394",
+      "title": "KingCRM deploy — disable Vercel protection",
+      "assignee": "AP",
+      "priority": "high",
+      "status": "blocked",
+      "description": "Needs BDUBB to disable protection in Vercel dashboard",
+      "createdAt": "2026-03-24T18:17:52.394Z",
+      "updatedAt": "2026-03-24T18:17:52.396Z"
+    },
+    {
+      "id": "1774376272084",
+      "title": "Mission Control elite upgrade — 9 enhancements",
+      "assignee": "FORGE",
+      "priority": "high",
+      "status": "in-progress",
+      "description": "Revenue dashboard, live data, terminal, notifications, mobile",
+      "createdAt": "2026-03-24T18:17:52.086Z",
+      "updatedAt": "2026-03-24T18:17:52.088Z"
+    }
+  ],
+  "lastUpdated": "2026-03-24T18:17:53.377Z"
+}

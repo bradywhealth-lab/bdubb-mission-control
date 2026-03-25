@@ -5,29 +5,21 @@ import { join } from "path";
 export const dynamic = "force-dynamic";
 
 // Try multiple possible paths for the data directory
-function getDataPath(filename: string): string | null {
-  const paths = [
-    // Absolute fallback path
-    "/Users/bradywilson/Desktop/BDUBB-HQ/data",
-    // Process home
-    process.env.HOME ? join(process.env.HOME, "Desktop/BDUBB-HQ/data") : null,
-    // Current working directory based
-    join(process.cwd(), "..", "data"),
-    join(process.cwd(), "data"),
+function getDataFile(filename: string): string | null {
+  const candidates = [
+    join(process.cwd(), "data", filename),
+    join(process.cwd(), "..", "data", filename),
+    process.env.HOME ? join(process.env.HOME, "Desktop/BDUBB-HQ/data", filename) : null,
   ].filter(Boolean) as string[];
-
-  for (const basePath of paths) {
-    const fullPath = join(basePath, filename);
-    if (existsSync(fullPath)) {
-      return fullPath;
-    }
+  for (const p of candidates) {
+    if (existsSync(p)) return p;
   }
   return null;
 }
 
 export async function GET() {
   try {
-    const dataPath = getDataPath("event-log.json");
+    const dataPath = getDataFile("event-log.json");
     if (!dataPath) {
       console.error("[API /events] Could not find event-log.json in any known location");
       return NextResponse.json([]); // Return empty array, not error object

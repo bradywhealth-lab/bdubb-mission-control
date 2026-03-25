@@ -4,39 +4,29 @@ import { join } from "path";
 
 export const dynamic = "force-dynamic";
 
-// Try multiple possible paths for the data directory
-function getDataPath(filename: string): string | null {
-  const paths = [
-    // Absolute fallback path
-    "/Users/bradywilson/Desktop/BDUBB-HQ/data",
-    // Process home
-    process.env.HOME ? join(process.env.HOME, "Desktop/BDUBB-HQ/data") : null,
-    // Current working directory based
-    join(process.cwd(), "..", "data"),
-    join(process.cwd(), "data"),
+function getDataFile(filename: string): string | null {
+  // In production (Vercel), files are at the repo root /data/
+  // In development, same — the data/ folder is committed to the repo
+  const candidates = [
+    join(process.cwd(), "data", filename),
+    join(process.cwd(), "..", "data", filename),
+    // Local desktop fallback for direct dev
+    process.env.HOME ? join(process.env.HOME, "Desktop/BDUBB-HQ/data", filename) : null,
   ].filter(Boolean) as string[];
 
-  for (const basePath of paths) {
-    const fullPath = join(basePath, filename);
-    if (existsSync(fullPath)) {
-      return fullPath;
-    }
+  for (const p of candidates) {
+    if (existsSync(p)) return p;
   }
   return null;
 }
 
 export async function GET() {
   try {
-    const dataPath = getDataPath("agent-status.json");
-    if (!dataPath) {
-      console.error("[API /agents] Could not find agent-status.json in any known location");
-      return NextResponse.json({}); // Return empty object, not error object
-    }
-    const data = readFileSync(dataPath, "utf-8");
-    const parsed = JSON.parse(data);
-    return NextResponse.json(parsed.agents || {});
-  } catch (error) {
-    console.error("[API /agents] Error:", error);
-    return NextResponse.json({}); // Return empty object, not error object
+    const p = getDataFile("agent-status.json");
+    if (!p) return NextResponse.json({});
+    const data = JSON.parse(readFileSync(p, "utf-8"));
+    return NextResponse.json(data.agents || {});
+  } catch {
+    return NextResponse.json({});
   }
 }

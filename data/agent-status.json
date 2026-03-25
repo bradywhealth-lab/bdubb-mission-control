@@ -1,0 +1,59 @@
+{
+  "agents": {
+    "AP": {
+      "status": "online",
+      "currentTask": "Orchestrating all agents — Mission Control live",
+      "lastActive": "2026-03-25T01:50:35.907Z",
+      "tasksCompleted": 0
+    },
+    "FORGE": {
+      "status": "idle",
+      "currentTask": null,
+      "lastActive": "2026-03-25T01:50:32.956Z",
+      "tasksCompleted": 0
+    },
+    "SENTINEL": {
+      "status": "monitoring",
+      "currentTask": "KingCRM health check every 4h",
+      "lastActive": "2026-03-25T01:50:33.492Z",
+      "tasksCompleted": 0
+    },
+    "ORACLE": {
+      "status": "monitoring",
+      "currentTask": "Polymarket 24/7 scan — every 30 min",
+      "lastActive": "2026-03-25T01:50:30.805Z",
+      "tasksCompleted": 0
+    },
+    "PHANTOM": {
+      "status": "monitoring",
+      "currentTask": "Viral trend scan 3x daily",
+      "lastActive": "2026-03-25T01:50:33.953Z",
+      "tasksCompleted": 0
+    },
+    "CIPHER": {
+      "status": "monitoring",
+      "currentTask": "Deploy health all projects every 3h",
+      "lastActive": "2026-03-25T01:50:34.464Z",
+      "tasksCompleted": 0
+    },
+    "ATLAS": {
+      "status": "idle",
+      "currentTask": null,
+      "lastActive": "",
+      "tasksCompleted": 0
+    },
+    "SCRIBE": {
+      "status": "monitoring",
+      "currentTask": "Repo watchdog + nightly status sync",
+      "lastActive": "2026-03-25T01:50:35.199Z",
+      "tasksCompleted": 0
+    },
+    "VERIFY": {
+      "status": "idle",
+      "currentTask": null,
+      "lastActive": "",
+      "tasksCompleted": 0
+    }
+  },
+  "lastUpdated": "2026-03-25T01:50:35.907Z"
+}

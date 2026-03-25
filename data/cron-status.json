@@ -1,0 +1,66 @@
+{
+  "jobs": [
+    {
+      "name": "Polymarket Signal",
+      "schedule": "Every 30 min",
+      "lastRun": "2026-03-25T01:31:44.371Z",
+      "lastStatus": "ok",
+      "channel": "#trading-bot"
+    },
+    {
+      "name": "Bot P&L Check",
+      "schedule": "Every hour",
+      "lastRun": null,
+      "lastStatus": "pending",
+      "channel": "#trading-bot"
+    },
+    {
+      "name": "SCRIBE Watchdog",
+      "schedule": "Every 2h",
+      "lastRun": "2026-03-25T00:06:55.118Z",
+      "lastStatus": "ok",
+      "channel": "#ap-alerts"
+    },
+    {
+      "name": "KingCRM Build Check",
+      "schedule": "Every 4h",
+      "lastRun": null,
+      "lastStatus": "pending",
+      "channel": "#kingcrm"
+    },
+    {
+      "name": "Deploy Monitor",
+      "schedule": "Every 3h",
+      "lastRun": null,
+      "lastStatus": "pending",
+      "channel": "#deploy-queue"
+    },
+    {
+      "name": "Crypto Pulse",
+      "schedule": "4x daily",
+      "lastRun": null,
+      "lastStatus": "pending",
+      "channel": "#trading-bot"
+    },
+    {
+      "name": "Intel Brief",
+      "schedule": "8AM/12PM/5PM",
+      "lastRun": null,
+      "lastStatus": "pending",
+      "channel": "#breaking-news"
+    },
+    {
+      "name": "Memory Sync",
+      "schedule": "11PM daily",
+      "lastRun": null,
+      "lastStatus": "pending",
+      "channel": "#ap-briefs"
+    },
+    {
+      "name": "GitHub Commit Monitor",
+      "lastRun": "2026-03-25T01:45:49.351Z",
+      "lastStatus": "ok"
+    }
+  ],
+  "lastUpdated": "2026-03-25T01:45:49.491Z"
+}

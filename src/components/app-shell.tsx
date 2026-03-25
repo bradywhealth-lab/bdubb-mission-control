@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, Building2, Clock, DollarSign, LayoutDashboard, Kanban, Menu, ScrollText, Rocket, Users, X } from "lucide-react";
+import { BookOpen, Building2, Clock, ClipboardList, DollarSign, LayoutDashboard, Kanban, Menu, ScrollText, Rocket, Users, X } from "lucide-react";
 import { ClockEastern } from "@/components/clock-eastern";
 import { useState } from "react";
 
@@ -17,6 +17,7 @@ const navItems = [
   { href: "/revenue", label: "Revenue", icon: DollarSign },
   { href: "/office", label: "Office", icon: Building2 },
   { href: "/docs", label: "Docs", icon: BookOpen },
+  { href: "/handoffs", label: "Handoffs", icon: ClipboardList },
 ];
 
 export function AppShell({ children }: { children: React.ReactNode }) {
