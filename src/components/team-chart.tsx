@@ -132,7 +132,9 @@ function AgentCard({ name, agent, lead = false }: { name: string; agent: Agent |
         <InfoRow label="Specialty" value={specialties[name] || "Operations"} />
         <div className="rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3">
           <p className="font-display text-[10px] uppercase tracking-[0.24em] text-white/40">Last Active</p>
-          <p className="mt-1 text-white/82">{agent?.lastActive ? formatLastActive(agent.lastActive) : "Never"}</p>
+          <p className={`mt-1 ${formatLastActiveColor(agent?.lastActive || null)}`}>
+            {agent?.lastActive ? formatLastActive(agent.lastActive) : "Never"}
+          </p>
         </div>
       </div>
     </motion.div>
@@ -157,4 +159,12 @@ function formatLastActive(timestamp: string): string {
   const hours = Math.floor(mins / 60);
   if (hours < 24) return `${hours}h ago`;
   return `${Math.floor(hours / 24)}d ago`;
+}
+
+function formatLastActiveColor(timestamp: string | null): string {
+  if (!timestamp) return "text-gray-500";
+  const diff = Date.now() - new Date(timestamp).getTime();
+  const hours = diff / 3600000;
+  if (hours < 24) return "text-green-400";
+  return "text-yellow-400";
 }

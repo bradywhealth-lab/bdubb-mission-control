@@ -24,12 +24,13 @@ export function SectionHeading({ eyebrow, title, description, action }: { eyebro
   );
 }
 
-export function GlowButton({ children, onClick, className = "", type = "button" }: { children: React.ReactNode; onClick?: () => void; className?: string; type?: "button" | "submit"; }) {
+export function GlowButton({ children, onClick, className = "", type = "button", disabled = false }: { children: React.ReactNode; onClick?: () => void; className?: string; type?: "button" | "submit"; disabled?: boolean; }) {
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`rounded-2xl border border-cyan-400/40 bg-cyan-400/15 px-4 py-3 font-body text-sm font-semibold text-cyan-100 shadow-[0_0_30px_rgba(0,212,255,0.18)] transition hover:border-cyan-300 hover:bg-cyan-400/20 ${className}`}
+      disabled={disabled}
+      className={`rounded-2xl border border-cyan-400/40 bg-cyan-400/15 px-4 py-3 font-body text-sm font-semibold text-cyan-100 shadow-[0_0_30px_rgba(0,212,255,0.18)] transition hover:border-cyan-300 hover:bg-cyan-400/20 disabled:opacity-50 disabled:cursor-not-allowed ${className}`}
     >
       {children}
     </button>

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { readFileSync, existsSync } from "fs";
+import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
 
 export const dynamic = "force-dynamic";
@@ -22,14 +22,14 @@ export async function GET() {
     const dataPath = getDataFile("tasks.json");
     if (!dataPath) {
       console.error("[API /tasks] Could not find tasks.json in any known location");
-      return NextResponse.json([]); // Return empty array, not error object
+      return NextResponse.json([]);
     }
     const data = readFileSync(dataPath, "utf-8");
     const parsed = JSON.parse(data);
     return NextResponse.json(parsed.tasks || []);
   } catch (error) {
     console.error("[API /tasks] Error:", error);
-    return NextResponse.json([]); // Return empty array, not error object
+    return NextResponse.json([]);
   }
 }
 
@@ -58,7 +58,9 @@ export async function POST(request: Request) {
     parsed.tasks.unshift(newTask);
     parsed.lastUpdated = new Date().toISOString();
 
-    // Note: In production, use writeFileSync. For now we return the task.
+    // Write the updated data back
+    writeFileSync(dataPath, JSON.stringify(parsed, null, 2));
+
     return NextResponse.json(newTask);
   } catch (error) {
     console.error("[API /tasks POST] Error:", error);

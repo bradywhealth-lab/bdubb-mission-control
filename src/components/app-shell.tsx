@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, Building2, Clock, ClipboardList, DollarSign, LayoutDashboard, Kanban, Menu, ScrollText, Rocket, Users, X } from "lucide-react";
+import { BookOpen, Building2, CheckSquare, Clock, ClipboardList, DollarSign, LayoutDashboard, Kanban, Menu, ScrollText, Rocket, Users, X } from "lucide-react";
 import { ClockEastern } from "@/components/clock-eastern";
 import { useState } from "react";
 
 const navItems = [
   { href: "/", label: "Home", icon: LayoutDashboard },
   { href: "/kanban", label: "Kanban", icon: Kanban },
+  { href: "/tasks", label: "Tasks", icon: CheckSquare },
   { href: "/team", label: "Agents", icon: Users },
   { href: "/logs", label: "Logs", icon: ScrollText },
   { href: "/deploy", label: "Deploy", icon: Rocket },
