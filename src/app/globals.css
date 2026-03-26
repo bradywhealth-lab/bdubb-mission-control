@@ -1,6 +1,10 @@
 :root {
   --background: #0a0a0f;
   --foreground: #f3f7ff;
+  --font-orbitron: "Orbitron", "Eurostile", "Bank Gothic", "Segoe UI", sans-serif;
+  --font-rajdhani:
+    "Rajdhani", "Inter", "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-press-start: "Press Start 2P", "Courier New", "Lucida Console", monospace;
 }
 
 @tailwind base;
