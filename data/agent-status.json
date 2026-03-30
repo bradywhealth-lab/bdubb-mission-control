@@ -2,58 +2,58 @@
   "agents": {
     "AP": {
       "status": "online",
-      "currentTask": "Orchestrating all agents — Mission Control live",
-      "lastActive": "2026-03-25T01:50:35.907Z",
+      "currentTask": "Mission Control live verification + data sync",
+      "lastActive": "2026-03-27T00:37:12.156Z",
       "tasksCompleted": 0
     },
     "FORGE": {
       "status": "idle",
       "currentTask": null,
-      "lastActive": "2026-03-25T01:50:32.956Z",
+      "lastActive": "2026-03-25T17:39:20.864Z",
       "tasksCompleted": 0
     },
     "SENTINEL": {
       "status": "monitoring",
-      "currentTask": "KingCRM health check every 4h",
-      "lastActive": "2026-03-25T01:50:33.492Z",
+      "currentTask": "KingCRM health check — every 4h",
+      "lastActive": "2026-03-25T17:12:40.664Z",
       "tasksCompleted": 0
     },
     "ORACLE": {
       "status": "monitoring",
-      "currentTask": "Polymarket 24/7 scan — every 30 min",
-      "lastActive": "2026-03-25T01:50:30.805Z",
+      "currentTask": "Polymarket live scan — every 30 min 24/7",
+      "lastActive": "2026-03-25T17:12:40.325Z",
       "tasksCompleted": 0
     },
     "PHANTOM": {
       "status": "monitoring",
-      "currentTask": "Viral trend scan 3x daily",
-      "lastActive": "2026-03-25T01:50:33.953Z",
+      "currentTask": "Viral trend scan — 3x daily",
+      "lastActive": "2026-03-25T17:12:40.958Z",
       "tasksCompleted": 0
     },
     "CIPHER": {
       "status": "monitoring",
-      "currentTask": "Deploy health all projects every 3h",
-      "lastActive": "2026-03-25T01:50:34.464Z",
+      "currentTask": "Deploy health — all projects 24/7",
+      "lastActive": "2026-03-25T17:12:41.277Z",
       "tasksCompleted": 0
     },
     "ATLAS": {
       "status": "idle",
       "currentTask": null,
-      "lastActive": "",
+      "lastActive": "2026-03-25T17:12:39.275Z",
       "tasksCompleted": 0
     },
     "SCRIBE": {
       "status": "monitoring",
       "currentTask": "Repo watchdog + nightly status sync",
-      "lastActive": "2026-03-25T01:50:35.199Z",
+      "lastActive": "2026-03-26T02:01:53.848Z",
       "tasksCompleted": 0
     },
     "VERIFY": {
-      "status": "idle",
-      "currentTask": null,
-      "lastActive": "",
+      "status": "monitoring",
+      "currentTask": "Mission Control live verification + audit prep",
+      "lastActive": "2026-03-27T00:37:12.156Z",
       "tasksCompleted": 0
     }
   },
-  "lastUpdated": "2026-03-25T01:50:35.907Z"
+  "lastUpdated": "2026-03-27T00:37:12.156Z"
 }

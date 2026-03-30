@@ -3,7 +3,7 @@
     {
       "name": "Polymarket Signal",
       "schedule": "Every 30 min",
-      "lastRun": "2026-03-25T01:31:44.371Z",
+      "lastRun": "2026-03-25T20:02:03.303Z",
       "lastStatus": "ok",
       "channel": "#trading-bot"
     },
@@ -17,7 +17,7 @@
     {
       "name": "SCRIBE Watchdog",
       "schedule": "Every 2h",
-      "lastRun": "2026-03-25T00:06:55.118Z",
+      "lastRun": "2026-03-25T20:03:18.110Z",
       "lastStatus": "ok",
       "channel": "#ap-alerts"
     },
@@ -31,8 +31,8 @@
     {
       "name": "Deploy Monitor",
       "schedule": "Every 3h",
-      "lastRun": null,
-      "lastStatus": "pending",
+      "lastRun": "2026-03-27T00:37:12.156Z",
+      "lastStatus": "ok",
       "channel": "#deploy-queue"
     },
     {
@@ -58,9 +58,14 @@
     },
     {
       "name": "GitHub Commit Monitor",
-      "lastRun": "2026-03-25T01:45:49.351Z",
+      "lastRun": "2026-03-25T20:02:41.644Z",
+      "lastStatus": "ok"
+    },
+    {
+      "name": "KingCRM Health",
+      "lastRun": "2026-03-30T04:05:29.747Z",
       "lastStatus": "ok"
     }
   ],
-  "lastUpdated": "2026-03-25T01:45:49.491Z"
+  "lastUpdated": "2026-03-30T04:05:29.749Z"
 }

@@ -1,6 +1,76 @@
 {
   "tasks": [
     {
+      "id": "1774637429601",
+      "title": "INFRA-AGENT",
+      "assignee": "Built DAILY-CONTEXT, project-health skill/checker, WORKFLOWS 6-9, ap-mode.json, AP-CONFIG-GUIDE",
+      "priority": "info",
+      "status": "completed",
+      "description": "",
+      "createdAt": "2026-03-27T18:50:29.602Z",
+      "updatedAt": "2026-03-27T18:50:29.604Z"
+    },
+    {
+      "id": "1774571832161",
+      "title": "Mission Control live verification + data update",
+      "assignee": "VERIFY",
+      "priority": "high",
+      "status": "done",
+      "description": "Verified live URL and core pages, updated agent/cron/task/event data files for current state.",
+      "createdAt": "2026-03-27T00:37:12.156Z",
+      "updatedAt": "2026-03-27T00:37:12.156Z"
+    },
+    {
+      "id": "1774494784871",
+      "title": "subagent-weather",
+      "assignee": "Built complete ORACLE+TRADER weather market integration: WEATHER_MODE_ONLY config, NWS v2 forecast parsing, weather_markets.json registry, 7 systemd services, vps_deploy.sh, Discord weather alerts, health check endpoint",
+      "priority": "info",
+      "status": "backlog",
+      "description": "",
+      "createdAt": "2026-03-26T03:13:04.871Z",
+      "updatedAt": "2026-03-26T03:13:04.873Z"
+    },
+    {
+      "id": "1774458763116",
+      "title": "Viral Engine — add env vars and connect DB",
+      "assignee": "CIPHER",
+      "priority": "high",
+      "status": "backlog",
+      "description": "Supabase URL, anon key, DB URL needed for full functionality",
+      "createdAt": "2026-03-25T17:12:43.116Z",
+      "updatedAt": "2026-03-25T17:12:43.128Z"
+    },
+    {
+      "id": "1774458762815",
+      "title": "KingCRM login test",
+      "assignee": "AP",
+      "priority": "high",
+      "status": "blocked",
+      "description": "BDUBB needs to test login at insurafuze-king-crm.vercel.app/auth",
+      "createdAt": "2026-03-25T17:12:42.815Z",
+      "updatedAt": "2026-03-25T17:12:42.817Z"
+    },
+    {
+      "id": "1774458762512",
+      "title": "Mission Control full rebuild",
+      "assignee": "FORGE",
+      "priority": "high",
+      "status": "done",
+      "description": "Home dashboard, live agent tracking, tasks page, real data",
+      "createdAt": "2026-03-25T17:12:42.512Z",
+      "updatedAt": "2026-03-27T00:37:12.156Z"
+    },
+    {
+      "id": "1774440929773",
+      "title": "oracle-trader-fix-2026-03-25",
+      "assignee": "Checkpoint: python compileall clean, venv deps installed, import smoke tests passing for ORACLE/TRADER",
+      "priority": "info",
+      "status": "backlog",
+      "description": "",
+      "createdAt": "2026-03-25T12:15:29.773Z",
+      "updatedAt": "2026-03-25T12:15:29.775Z"
+    },
+    {
       "id": "1774376273348",
       "title": "Viral Engine — build from scratch",
       "assignee": "FORGE",
@@ -41,5 +111,5 @@
       "updatedAt": "2026-03-24T18:17:52.088Z"
     }
   ],
-  "lastUpdated": "2026-03-24T18:17:53.377Z"
+  "lastUpdated": "2026-03-27T18:50:29.605Z"
 }
