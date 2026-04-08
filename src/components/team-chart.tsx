@@ -10,35 +10,35 @@ interface Agent {
   lastActive: string;
 }
 
-const agents = ["AP", "FORGE", "SENTINEL", "ORACLE", "PHANTOM", "CIPHER", "SCRIBE", "ATLAS", "VERIFY"];
 const specialties: Record<string, string> = {
-  AP: "Lead Agent - Coordination",
-  FORGE: "Build & Engineering",
-  SENTINEL: "Security & Monitoring",
-  ORACLE: "Research & Intelligence",
-  PHANTOM: "Stealth Operations",
-  CIPHER: "Encryption & Security",
-  SCRIBE: "Documentation & Logs",
-  ATLAS: "Mapping & Navigation",
-  VERIFY: "Testing & QA",
+  BA: "Front-door Operator — Routing and Command Center",
+  Scout: "Creative Engine — Ideas, Enhancements, Revenue Discovery",
+  Sentinel: "Anti-Drift Watchdog — Health and Governance",
+  Blacksmith: "Complex Lead Builder — Architecture and Deep Implementation",
+  Borealis: "Medium Builder — Features and Integrations",
+  Blitz: "Quick Builder — Fast Fixes and Scripts",
+  Inspector: "QA and Release Gate — Universal Verification",
+  Curator: "Knowledge Manager — Docs, Memory, Research Synthesis",
+  Upgrader: "Optimization — Benchmarking and Cost Tuning",
 };
 
 const aiSystems: Record<string, string> = {
-  AP: "Claude Opus 4.6",
-  FORGE: "Claude Opus 4.6",
-  SENTINEL: "Claude Sonnet 4.6",
-  ORACLE: "Claude Opus 4.6",
-  PHANTOM: "Claude Sonnet 4.6",
-  CIPHER: "Claude Opus 4.6",
-  SCRIBE: "Claude Sonnet 4.6",
-  ATLAS: "Claude Sonnet 4.6",
-  VERIFY: "Claude Haiku 4.5",
+  BA: "Claude Sonnet 4.6",
+  Scout: "Kimi K2.5",
+  Sentinel: "Kimi K2.5",
+  Blacksmith: "Claude Sonnet 4.6",
+  Borealis: "GPT-5.1 Codex Mini",
+  Blitz: "GPT-5 Mini",
+  Inspector: "GPT-5.1",
+  Curator: "Kimi K2.5",
+  Upgrader: "Kimi K2.5",
 };
 
 const statusColors: Record<string, string> = {
   online: "bg-green-400",
   building: "bg-yellow-400",
   monitoring: "bg-blue-400",
+  "on-call": "bg-purple-400",
   idle: "bg-gray-400",
 };
 
@@ -61,8 +61,9 @@ export function TeamChart() {
     fetchAgents();
   }, []);
 
-  const lead = "AP";
-  const reports = agents.filter((a) => a !== lead);
+  const lead = "BA";
+  const builders = ["Blacksmith", "Borealis", "Blitz"];
+  const support = ["Scout", "Sentinel", "Inspector", "Curator", "Upgrader"];
 
   if (loading) {
     return (
@@ -77,24 +78,33 @@ export function TeamChart() {
 
   return (
     <>
-      <SectionHeading eyebrow="Chain of Command" title="Team" description="Org chart for AP and supporting sub-agents with system, status, and operating specialty." />
+      <SectionHeading eyebrow="Agency2 Roster" title="Agents" description="9-agent team: BA at the front door, specialists in lanes, every outcome owned." />
 
       <Panel className="overflow-hidden">
         <div className="relative min-h-[620px] overflow-x-auto rounded-[28px] p-4 md:p-8">
-          <div className="absolute left-1/2 top-[210px] hidden h-16 w-px -translate-x-1/2 bg-white/15 md:block" />
-          <div className="absolute left-1/2 top-[274px] hidden h-px w-[70%] -translate-x-1/2 bg-white/15 md:block" />
-
-          <div className="mb-16 flex justify-center">
+          {/* BA at top */}
+          <div className="mb-12 flex justify-center">
             <AgentCard name={lead} agent={agentData[lead]} lead />
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {reports.map((name) => (
-              <div key={name} className="relative">
-                <div className="absolute left-1/2 top-[-28px] hidden h-8 w-px -translate-x-1/2 bg-white/15 md:block" />
-                <AgentCard name={name} agent={agentData[name]} />
-              </div>
-            ))}
+          {/* Builder lane */}
+          <div className="mb-8">
+            <p className="mb-4 font-display text-xs uppercase tracking-[0.28em] text-cyan-300/60 text-center">Builder Lane</p>
+            <div className="grid gap-6 md:grid-cols-3 justify-items-center">
+              {builders.map((name) => (
+                <AgentCard key={name} name={name} agent={agentData[name]} />
+              ))}
+            </div>
+          </div>
+
+          {/* Support agents */}
+          <div>
+            <p className="mb-4 font-display text-xs uppercase tracking-[0.28em] text-cyan-300/60 text-center">Specialists</p>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5 justify-items-center">
+              {support.map((name) => (
+                <AgentCard key={name} name={name} agent={agentData[name]} />
+              ))}
+            </div>
           </div>
         </div>
       </Panel>
@@ -115,12 +125,12 @@ function AgentCard({ name, agent, lead = false }: { name: string; agent: Agent |
         </div>
         <div>
           <p className="font-body text-xl font-semibold text-white">{name}</p>
-          <p className="font-display text-xs uppercase tracking-[0.24em] text-cyan-300/70">{lead ? "Lead Agent" : "Sub-Agent"}</p>
+          <p className="font-display text-xs uppercase tracking-[0.24em] text-cyan-300/70">{lead ? "Front-door Operator" : "Specialist"}</p>
         </div>
       </div>
 
       <div className="space-y-3 font-body text-sm">
-        <InfoRow label="AI System" value={aiSystems[name] || "Claude"} />
+        <InfoRow label="Model" value={aiSystems[name] || "Claude"} />
         <div className="rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3">
           <p className="font-display text-[10px] uppercase tracking-[0.24em] text-white/40">Status</p>
           <div className="mt-1 flex items-center gap-2">
@@ -129,12 +139,9 @@ function AgentCard({ name, agent, lead = false }: { name: string; agent: Agent |
           </div>
         </div>
         <InfoRow label="Current Task" value={agent?.currentTask || "Idle"} />
-        <InfoRow label="Specialty" value={specialties[name] || "Operations"} />
         <div className="rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3">
-          <p className="font-display text-[10px] uppercase tracking-[0.24em] text-white/40">Last Active</p>
-          <p className={`mt-1 ${formatLastActiveColor(agent?.lastActive || null)}`}>
-            {agent?.lastActive ? formatLastActive(agent.lastActive) : "Never"}
-          </p>
+          <p className="font-display text-[10px] uppercase tracking-[0.24em] text-white/40">Specialty</p>
+          <p className="mt-1 text-white/82 text-xs leading-relaxed">{specialties[name] || "Operations"}</p>
         </div>
       </div>
     </motion.div>
@@ -148,23 +155,4 @@ function InfoRow({ label, value }: { label: string; value: string }) {
       <p className="mt-1 text-white/82">{value}</p>
     </div>
   );
-}
-
-function formatLastActive(timestamp: string): string {
-  if (!timestamp) return "Never";
-  const diff = Date.now() - new Date(timestamp).getTime();
-  const mins = Math.floor(diff / 60000);
-  if (mins < 1) return "Just now";
-  if (mins < 60) return `${mins}m ago`;
-  const hours = Math.floor(mins / 60);
-  if (hours < 24) return `${hours}h ago`;
-  return `${Math.floor(hours / 24)}d ago`;
-}
-
-function formatLastActiveColor(timestamp: string | null): string {
-  if (!timestamp) return "text-gray-500";
-  const diff = Date.now() - new Date(timestamp).getTime();
-  const hours = diff / 3600000;
-  if (hours < 24) return "text-green-400";
-  return "text-yellow-400";
 }

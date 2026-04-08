@@ -4,7 +4,7 @@ import { FileCode2, FileSearch, FileText, FolderKanban, Loader2, RefreshCw } fro
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Modal, Panel, SectionHeading } from "@/components/ui";
 
-type DocFolder = "SOPs" | "Infra" | "Trading" | "Projects" | "Tools" | "PRDs" | "Code" | "Research" | "Reports" | "Plans" | "Other";
+type DocFolder = "SOPs" | "Memory" | "Infra" | "Trading" | "Projects" | "Tools" | "PRDs" | "Code" | "Research" | "Reports" | "Plans" | "Other";
 
 interface DocEntry {
   id: string;
@@ -16,7 +16,7 @@ interface DocEntry {
   path?: string;
 }
 
-const folders: DocFolder[] = ["SOPs", "Infra", "Trading", "Projects", "Tools", "PRDs", "Code", "Research", "Reports", "Plans", "Other"];
+const folders: DocFolder[] = ["SOPs", "Memory", "Infra", "Trading", "Projects", "Tools", "PRDs", "Code", "Research", "Reports", "Plans", "Other"];
 
 const folderIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   PRDs: FolderKanban,
@@ -26,6 +26,7 @@ const folderIcons: Record<string, React.ComponentType<{ className?: string }>> =
   Plans: FolderKanban,
   Other: FileText,
   SOPs: FolderKanban,
+  Memory: FileText,
   Infra: FolderKanban,
   Trading: FileText,
   Projects: FolderKanban,

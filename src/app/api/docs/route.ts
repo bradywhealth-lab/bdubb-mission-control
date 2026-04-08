@@ -4,27 +4,32 @@ import { join } from "path";
 
 export const dynamic = "force-dynamic";
 
-const HOME = "/Users/bradywilson";
+// Agency2 workspace on VPS
+const WORKSPACE = "/home/deployer/.openclaw/workspace-agency2";
 
 // Key files we always want surfaced
 const PINNED_FILES: Array<{ path: string; folder: string; title: string }> = [
-  { path: `${HOME}/Desktop/BDUBB-HQ/MASTER-CONTEXT.md`, folder: "SOPs", title: "MASTER-CONTEXT — The Bible" },
-  { path: `${HOME}/Desktop/BDUBB-HQ/CONTEXT.md`, folder: "SOPs", title: "CONTEXT — Agent Context" },
-  { path: `${HOME}/.openclaw/workspace/MEMORY.md`, folder: "SOPs", title: "AP MEMORY.md" },
-  { path: `${HOME}/Desktop/BDUBB-HQ/docs/WORKFLOWS.md`, folder: "SOPs", title: "Workflows" },
-  { path: `${HOME}/Desktop/BDUBB-HQ/docs/DISCORD-CHANNELS.md`, folder: "Infra", title: "Discord Channels" },
-  { path: `${HOME}/Desktop/BDUBB-HQ/docs/trading-tools.md`, folder: "Trading", title: "Trading Tools" },
-  { path: `${HOME}/Desktop/BDUBB-HQ/handoffs/TEMPLATE.md`, folder: "SOPs", title: "Handoff Template" },
-  { path: `${HOME}/.agents/skills/autosave/SKILL.md`, folder: "SOPs", title: "AutoSave Skill" },
+  { path: `${WORKSPACE}/MASTER-CONTEXT.md`, folder: "SOPs", title: "MASTER-CONTEXT" },
+  { path: `${WORKSPACE}/AGENTS.md`, folder: "SOPs", title: "AGENTS — Agent Roster" },
+  { path: `${WORKSPACE}/BA-CONSTITUTION.md`, folder: "SOPs", title: "BA Constitution" },
+  { path: `${WORKSPACE}/BA-PREFERENCES.md`, folder: "SOPs", title: "BA Preferences" },
+  { path: `${WORKSPACE}/USER.md`, folder: "SOPs", title: "USER — BDUBB Standard" },
+  { path: `${WORKSPACE}/PROJECTS-CONTEXT.md`, folder: "Projects", title: "Projects Context" },
+  { path: `${WORKSPACE}/TASK-STATE.md`, folder: "SOPs", title: "Task State" },
+  { path: `${WORKSPACE}/MEMORY.md`, folder: "SOPs", title: "Long-term Memory" },
+  { path: `${WORKSPACE}/SYSTEM-MEMORY.md`, folder: "SOPs", title: "System Memory" },
+  { path: `${WORKSPACE}/PREFERENCE-LEARNINGS.md`, folder: "SOPs", title: "Preference Learnings" },
+  { path: `${WORKSPACE}/HEARTBEAT.md`, folder: "SOPs", title: "Heartbeat Protocol" },
+  { path: `${WORKSPACE}/CONTEXT-MAINTENANCE.md`, folder: "SOPs", title: "Context Maintenance" },
+  { path: `${WORKSPACE}/SESSION-SUMMARY-PROTOCOL.md`, folder: "SOPs", title: "Session Summary Protocol" },
+  { path: `${WORKSPACE}/HANDOFF-TEMPLATE.md`, folder: "SOPs", title: "Handoff Template" },
 ];
 
 // Directories to scan for additional docs
 const SCAN_DIRS: Array<{ base: string; folder: string }> = [
-  { base: `${HOME}/Desktop/BDUBB-HQ/docs`, folder: "SOPs" },
-  { base: `${HOME}/Desktop/BDUBB-HQ/tools/ap-skills`, folder: "Tools" },
-  { base: `${HOME}/Desktop/viral-engine/docs`, folder: "Projects" },
-  { base: `${HOME}/Desktop/z.ai-1st-kingCRM/docs`, folder: "Projects" },
-  { base: `${HOME}/Desktop/bot-gawds`, folder: "Trading" },
+  { base: `${WORKSPACE}/memory`, folder: "Memory" },
+  { base: `${WORKSPACE}/projects`, folder: "Projects" },
+  { base: `${WORKSPACE}/ops`, folder: "Infra" },
 ];
 
 interface DocEntry {

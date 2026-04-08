@@ -5,15 +5,9 @@ import { join } from "path";
 export const dynamic = "force-dynamic";
 
 function getDataFile(filename: string): string | null {
-  // In production (Vercel), files are at the repo root /data/
-  // In development, same — the data/ folder is committed to the repo
   const candidates = [
     join(process.cwd(), "data", filename),
-    join(process.cwd(), "..", "data", filename),
-    // Local desktop fallback for direct dev
-    process.env.HOME ? join(process.env.HOME, "Desktop/BDUBB-HQ/data", filename) : null,
   ].filter(Boolean) as string[];
-
   for (const p of candidates) {
     if (existsSync(p)) return p;
   }

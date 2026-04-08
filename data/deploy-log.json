@@ -1,33 +1,4 @@
 {
-  "deploys": [
-    {
-      "project": "KingCRM",
-      "status": "live",
-      "url": "https://insurafuze-king-crm.vercel.app",
-      "lastDeploy": "2026-03-24",
-      "health": "blocked"
-    },
-    {
-      "project": "Mission Control",
-      "status": "live",
-      "url": "https://bdubb-mission-control.vercel.app",
-      "lastDeploy": "2026-03-24",
-      "health": "ok"
-    },
-    {
-      "project": "Viral Engine",
-      "status": "building",
-      "url": null,
-      "lastDeploy": null,
-      "health": null
-    },
-    {
-      "project": "King Money Maker v2",
-      "status": "ready",
-      "url": null,
-      "lastDeploy": null,
-      "health": null
-    }
-  ],
-  "lastUpdated": "2026-03-24T18:17:54.431Z"
+  "deploys": [],
+  "lastUpdated": "2026-04-08T01:40:00.000Z"
 }

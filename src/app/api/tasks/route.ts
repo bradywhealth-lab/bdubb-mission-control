@@ -8,8 +8,6 @@ export const dynamic = "force-dynamic";
 function getDataFile(filename: string): string | null {
   const candidates = [
     join(process.cwd(), "data", filename),
-    join(process.cwd(), "..", "data", filename),
-    process.env.HOME ? join(process.env.HOME, "Desktop/BDUBB-HQ/data", filename) : null,
   ].filter(Boolean) as string[];
   for (const p of candidates) {
     if (existsSync(p)) return p;
